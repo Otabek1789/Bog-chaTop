@@ -1,0 +1,344 @@
+.auth-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  /* Soft gradient background matching project theme */
+  background: var(--surface-warm);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Background decorative blobs */
+.auth-wrapper::before,
+.auth-wrapper::after {
+  content: "";
+  position: absolute;
+  width: 50vw;
+  height: 50vw;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.15;
+  z-index: 0;
+  pointer-events: none;
+}
+.auth-wrapper::before {
+  top: -10%;
+  left: -10%;
+  background: var(--brand-500);
+}
+.auth-wrapper::after {
+  bottom: -20%;
+  right: -10%;
+  background: var(--accent-500);
+}
+
+.auth-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: var(--surface);
+  overflow: hidden;
+  z-index: 1;
+}
+
+.auth-container h1 {
+  font-size: 36px;
+  margin: -10px 0;
+  color: var(--neutral-900);
+}
+
+.auth-container p {
+  font-size: 14.5px;
+  margin: 15px 0;
+  color: var(--neutral-500);
+}
+
+.auth-form-box {
+  position: absolute;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  background: var(--surface);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px;
+  z-index: 1;
+  transition: transform 0.6s ease-in-out 1.2s, right 0.6s ease-in-out 1.2s, visibility 0s 1s;
+}
+
+.auth-form-box form {
+  width: 100%;
+}
+
+.auth-container.active .auth-form-box.login {
+  right: 50%;
+}
+
+.auth-form-box.register {
+  visibility: hidden;
+}
+.auth-container.active .auth-form-box.register {
+  visibility: visible;
+}
+
+.auth-input-box {
+  position: relative;
+  margin: 30px 0;
+}
+
+.auth-input-box input {
+  width: 100%;
+  padding: 13px 50px 13px 20px;
+  background: var(--neutral-100);
+  border-radius: 8px;
+  border: 1px solid var(--neutral-200);
+  outline: none;
+  font-size: 16px;
+  color: var(--neutral-900);
+  font-weight: 500;
+  transition: border-color 0.3s;
+}
+
+.auth-input-box input:focus {
+  border-color: var(--brand-500);
+}
+
+.auth-input-box input::placeholder {
+  color: var(--neutral-400);
+  font-weight: 400;
+}
+
+.auth-input-box svg {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--neutral-400);
+}
+
+.auth-forgot-link {
+  margin: -15px 0 15px;
+  text-align: left;
+}
+.auth-forgot-link a {
+  font-size: 14.5px;
+  color: var(--brand-600);
+  font-weight: 500;
+}
+
+.auth-btn {
+  width: 100%;
+  height: 48px;
+  background: var(--brand-500);
+  border-radius: 8px;
+  box-shadow: 0 4px 14px rgba(79, 70, 229, 0.4);
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  color: #fff;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: opacity 0.3s, transform 0.3s, box-shadow 0.3s;
+}
+
+.auth-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.auth-social-icons {
+  display: flex;
+  justify-content: center;
+}
+
+.auth-social-icons button {
+  display: inline-flex;
+  padding: 10px;
+  border: 2px solid var(--neutral-200);
+  background: transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  margin: 0 8px;
+  /* removed transition to prevent theme toggle lag */
+  color: var(--neutral-700);
+}
+
+.auth-social-icons button:hover {
+  background: var(--neutral-100);
+}
+
+.auth-toggle-box {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.auth-toggle-box::before {
+  content: "";
+  position: absolute;
+  left: -250%;
+  width: 300%;
+  height: 100%;
+  background: var(--brand-gradient);
+  border-radius: 150px;
+  z-index: 2;
+  transition: left 1.8s ease-in-out;
+}
+
+.auth-container.active .auth-toggle-box::before {
+  left: 50%;
+}
+
+.auth-toggle-panel {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+  transition: left 0.6s ease-in-out, right 0.6s ease-in-out;
+  padding: 0 40px;
+  text-align: center;
+}
+
+.auth-toggle-panel h1 {
+  color: #fff;
+}
+
+.auth-toggle-panel p {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.auth-toggle-panel.toggle-left {
+  left: 0;
+  transition-delay: 1.2s;
+}
+.auth-container.active .auth-toggle-panel.toggle-left {
+  left: -50%;
+  transition-delay: 0.6s;
+}
+
+.auth-toggle-panel.toggle-right {
+  right: -50%;
+  transition-delay: 0.6s;
+}
+.auth-container.active .auth-toggle-panel.toggle-right {
+  right: 0;
+  transition-delay: 1.2s;
+}
+
+.auth-toggle-panel .auth-btn {
+  width: auto;
+  min-width: 160px;
+  padding: 0 32px;
+  height: 46px;
+  background: transparent;
+  border: 2px solid #fff;
+  box-shadow: none;
+}
+
+/* Header overlay actions (theme, lang, back) */
+.auth-header-actions {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  z-index: 100;
+  display: flex;
+  gap: 12px;
+}
+
+.auth-back-action {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  z-index: 100;
+}
+
+.auth-icon-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1px solid var(--neutral-200);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--neutral-700);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  /* removed transition to prevent theme toggle lag */
+}
+.auth-icon-btn:hover {
+  background: var(--neutral-100);
+}
+
+@media screen and (max-width: 850px) {
+  .auth-container {
+    height: 100vh;
+  }
+
+  .auth-form-box {
+    bottom: 0;
+    width: 100%;
+    height: 70%;
+  }
+
+  .auth-container.active .auth-form-box {
+    right: 0;
+    bottom: 30%;
+  }
+
+  .auth-toggle-box::before {
+    left: 0;
+    top: -270%;
+    width: 100%;
+    height: 300%;
+    border-radius: 20vw;
+  }
+
+  .auth-container.active .auth-toggle-box::before {
+    left: 0;
+    top: 70%;
+  }
+
+  .auth-container.active .auth-toggle-panel.toggle-left {
+    left: 0;
+    top: -30%;
+  }
+
+  .auth-toggle-panel {
+    width: 100%;
+    height: 30%;
+  }
+  .auth-toggle-panel.toggle-left {
+    top: 0;
+  }
+  .auth-toggle-panel.toggle-right {
+    right: 0;
+    bottom: -30%;
+  }
+
+  .auth-container.active .auth-toggle-panel.toggle-right {
+    bottom: 0;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .auth-form-box {
+    padding: 20px;
+  }
+
+  .auth-toggle-panel h1 {
+    font-size: 30px;
+  }
+}

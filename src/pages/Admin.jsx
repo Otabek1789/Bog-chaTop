@@ -3,7 +3,7 @@ import { useAuth } from '../context/AuthContext';
 import { useLanguage } from '../context/LanguageContext';
 import { useTheme } from '../context/ThemeContext';
 import { useNavigate } from 'react-router-dom';
-import { LogOut, LayoutDashboard, Users, UserCheck, DollarSign, Calendar, Briefcase, MessageSquare, Moon, Sun, Globe, Bell } from 'lucide-react';
+import { LogOut, LayoutDashboard, Users, UserCheck, DollarSign, Calendar, Briefcase, MessageSquare, Moon, Sun, Globe, Bell, Home } from 'lucide-react';
 
 import DashboardTab from './admin/DashboardTab';
 import ChildrenTab from './admin/ChildrenTab';
@@ -96,6 +96,18 @@ export default function Admin() {
             </button>
           ))}
         </nav>
+
+        <button
+          onClick={() => navigate('/')}
+          style={{
+            display: 'flex', alignItems: 'center', gap: '12px', padding: '12px 16px',
+            background: 'var(--brand-500)', color: 'white',
+            border: 'none', borderRadius: '8px', fontWeight: 600, cursor: 'pointer', textAlign: 'center',
+            justifyContent: 'center', transition: 'all 0.2s ease', marginTop: '16px'
+          }}
+        >
+          <Home size={20} /> Saytga qaytish
+        </button>
 
         {/* Toggles */}
         <div style={{ display: 'flex', gap: '12px', marginBottom: '24px', marginTop: '24px' }}>

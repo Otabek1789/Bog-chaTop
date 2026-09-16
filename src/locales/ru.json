@@ -219,5 +219,30 @@
     "chatOnline": "Онлайн",
     "chatOffline": "Был(а) недавно",
     "receiptSuccess": "Квитанции успешно отправлены!"
+  },
+  "auth": {
+    "email": "Email",
+    "password": "Пароль",
+    "username": "Имя пользователя",
+    "forgotPassword": "Забыли пароль?",
+    "loginBtn": "Войти",
+    "registerBtn": "Зарегистрироваться",
+    "orLoginSocial": "Или войдите через соцсети",
+    "orRegisterSocial": "Или зарегистрируйтесь через соцсети",
+    "helloWelcome": "Привет, добро пожаловать!",
+    "dontHaveAccount": "Нет аккаунта?",
+    "welcomeBack": "С возвращением!",
+    "alreadyHaveAccount": "Уже есть аккаунт?",
+    "codeSent": "Код подтверждения отправлен на вашу электронную почту.",
+    "verifyCode": "Код подтверждения (например: 123456)",
+    "verifyBtn": "Подтвердить",
+    "goBack": "Вернуться назад",
+    "fillAllFields": "Заполните все поля",
+    "fillEmailPass": "Пожалуйста, введите почту и пароль полностью",
+    "enterCode": "Пожалуйста, введите код",
+    "wait": "Подождите...",
+    "checking": "Проверка...",
+    "registrationHeading": "Регистрация",
+    "loginHeading": "Вход"
   }
 }

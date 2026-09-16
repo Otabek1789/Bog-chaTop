@@ -219,5 +219,30 @@
     "chatOnline": "Online",
     "chatOffline": "Yaqinda kirdi",
     "receiptSuccess": "Kvitansiyalar muvaffaqiyatli yuborildi!"
+  },
+  "auth": {
+    "email": "Email",
+    "password": "Parol",
+    "username": "Foydalanuvchi nomi",
+    "forgotPassword": "Parolni unutdingizmi?",
+    "loginBtn": "Tizimga kirish",
+    "registerBtn": "Ro'yxatdan o'tish",
+    "orLoginSocial": "Yoki ijtimoiy tarmoqlar orqali kiring",
+    "orRegisterSocial": "Yoki ijtimoiy tarmoqlar orqali ro'yxatdan o'ting",
+    "helloWelcome": "Salom, xush kelibsiz!",
+    "dontHaveAccount": "Akkauntingiz yo'qmi?",
+    "welcomeBack": "Xush kelibsiz!",
+    "alreadyHaveAccount": "Akkauntingiz bormi?",
+    "codeSent": "Email pochtangizga tasdiqlash kodi yuborildi.",
+    "verifyCode": "Tasdiqlash kodi (masalan: 123456)",
+    "verifyBtn": "Tasdiqlash",
+    "goBack": "Ortga qaytish",
+    "fillAllFields": "Barcha maydonlarni to'ldiring",
+    "fillEmailPass": "Iltimos, elektron pochta va parolni to'liq kiriting",
+    "enterCode": "Iltimos, kodni kiriting",
+    "wait": "Kutib turing...",
+    "checking": "Tekshirilmoqda...",
+    "registrationHeading": "Ro'yxatdan o'tish",
+    "loginHeading": "Kirish"
   }
 }

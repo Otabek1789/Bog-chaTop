@@ -7,7 +7,6 @@ import Kindergartens from './pages/Kindergartens';
 import Contact from './pages/Contact';
 import Detail from './pages/Detail';
 import Login from './pages/Login';
-import Register from './pages/Register';
 import Admin from './pages/Admin';
 import ScrollToTop from './components/ScrollToTop';
 import ProtectedRoute from './components/ProtectedRoute';
@@ -21,10 +20,11 @@ import MyApplications from './pages/MyApplications';
 function Layout() {
   const location = useLocation();
   const isAdmin = location.pathname.startsWith('/admin');
+  const isAuthPage = location.pathname === '/login' || location.pathname === '/register';
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-      <Header isAdmin={isAdmin} />
+      {!isAuthPage && !isAdmin && <Header />}
       <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
         <div key={location.pathname} className="page-transition" style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
           <Routes>
@@ -44,7 +44,7 @@ function Layout() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/bogcha/:id" element={<Detail />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
+            <Route path="/register" element={<Login defaultRegister={true} />} />
             <Route 
               path="/admin/*" 
               element={
@@ -56,7 +56,7 @@ function Layout() {
           </Routes>
         </div>
       </div>
-      {!isAdmin && <Footer />}
+      {!isAdmin && !isAuthPage && <Footer />}
     </div>
   );
 }
